@@ -30,7 +30,7 @@ def admin_login(request):
 
 
 def admin_home(request):
-    return render(request,'admin_home.html')
+    return render(request,'admin/admin_home.html')
 
 
 def create_employee(request):
@@ -44,12 +44,17 @@ def create_employee(request):
 
         if name and email and password and task1 and task2 and task3 is not None:
             try:
-                employee(name=name, email=email,password=password).save()
+                employee(name=name, email=email,password=password,task1=task1,task2=task2,task3=task3).save()
                 messages.info(request, "successfully created employee account")
-                return redirect('/company_login/')
+                return redirect('/admin_home/')
             except:
                 pass
         else:
              messages.info(request, "Fields Should not be empty")
 
-        return render(request, 'admins/create_employees.html')
+    return render(request, 'admin/create_employees.html')
+
+
+def view_employee_details(request):
+    data = employee.objects.all()
+    return render(request,'admin/employee_details.html',{'data':data})
