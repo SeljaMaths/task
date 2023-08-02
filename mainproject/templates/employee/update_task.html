@@ -1,0 +1,98 @@
+<!--A Design by W3layouts
+Author: W3layouts
+Author URL: http://w3layouts.com
+License: Creative Commons Attribution 3.0 Unported
+License URL: http://creativecommons.org/licenses/by/3.0/
+-->
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+<title>Modern Register Form Flat Responsive Widget Template :: w3layouts</title>
+<!-- meta data -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="keywords" content="Modern Register Form Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template,
+Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
+		function hideURLbar(){ window.scrollTo(0,1); } </script>
+<!-- //meta data -->
+<link href="//fonts.googleapis.com/css?family=Yanone+Kaffeesatz:200,300,400,700&amp;subset=cyrillic,latin-ext,vietnamese" rel="stylesheet">
+<!-- css files -->
+<link href="{% static 'form/css/style.css' %}" type="text/css" rel="stylesheet" media="all">
+<!-- //css files -->
+</head>
+<!-- body starts -->
+<body>
+<script>
+{% for m in messages %}
+      alert('{{ m }}');
+{% endfor %}
+</script>
+<!-- section -->
+<section class="register">
+	<div class="register-full">
+		<div class="register-left">
+			<div class="register-in">
+				<h1>Create Employees Form</h1>
+				<p>Donec ipsum lorem, sodales a sagittis ut, convallis non nibh. Integer vitae cursus nunc, et vestibulum augue. Donec lacinia tristique purus. Aenean in est pretium lectus euismod facilisis.</p>
+				<p>Donec ipsum lorem, sodales a sagittis ut, convallis non nibh. Integer vitae cursus nunc, et vestibulum augue. Donec lacinia tristique purus. Aenean in est pretium lectus euismod facilisis.</p>
+<!--				<div class="link">-->
+<!--					<a href="#">Already have an account</a>-->
+<!--				</div>-->
+			</div>
+		</div>
+		<div class="register-right">
+			<div class="register-in">
+				<h2>register here</h2>
+				<div class="register-form">
+					<form action="" method="post">
+						{% csrf_token %}
+						<div class="fields-grid">
+
+
+							<div class="styled-input">
+								<select name="task1" id="cars"  >
+									<option  value="{{update.task1}}">{{update.task1}}</option>
+									<option value="Pending">Pending</option>
+									<option value="Completed">Completed</option>
+
+								</select>
+								<!-- <label for="cars">Choose a car:</label> -->
+							</div>
+							<div class="styled-input">
+								<select name="task2" id="cars">
+										<option  value="{{update.task2}}">{{update.task2}}</option>
+									<option value="Pending">Pending</option>
+									<option value="Completed">Completed</option>
+
+								</select>
+								<!-- <label for="cars">Choose a car:</label> -->
+							</div>
+							<div class="styled-input">
+								<select name="task3"   id="cars">
+										<option value="{{update.task3}}">{{update.task3}}</option>
+									<option value="Pending">Pending</option>
+									<option value="Completed">Completed</option>
+
+								</select>
+								<!-- <label for="cars">Choose a car:</label> -->
+							</div>
+
+
+						<input type="submit" value="Create">
+					  </form>
+				</div>
+			</div>
+			<div class="clear"> </div>
+		</div>
+	<div class="clear"> </div>
+	</div>
+	<!-- copyright -->
+<!--	<p class="agile-copyright">© 2017 Modern Register Form. All Rights Reserved | Design by <a href="https://w3layouts.com/" target="_blank">W3layouts</a></p>-->
+	<!-- //copyright -->
+</section>
+<!-- //section -->
+</body>
+<!-- //body ends -->
+</html>

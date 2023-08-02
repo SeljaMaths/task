@@ -125,8 +125,8 @@ STATIC_ROOT = BASE_DIR / 'staticfiles'
 STATICFILES_DIRS = [BASE_DIR / 'static',]
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
-EMAIL_HOST_USER = "authentication4email@gmail.com"
-EMAIL_HOST_PASSWORD = "oqixbcniadbckqid"
+EMAIL_HOST_USER = "kaaarrthi@gmail.com"
+EMAIL_HOST_PASSWORD = "frebesrgpzzfrzbh"
 
 EMAIL_USE_TLS = True
 
