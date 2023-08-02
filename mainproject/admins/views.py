@@ -38,8 +38,11 @@ def create_employee(request):
         name = request.POST['name']
         email = request.POST['email']
         password = request.POST['password']
+        task1 = request.POST['task1']
+        task2 = request.POST['task2']
+        task3 = request.POST['task3']
 
-        if name and email and password is not None:
+        if name and email and password and task1 and task2 and task3 is not None:
             try:
                 employee(name=name, email=email,password=password).save()
                 messages.info(request, "successfully created employee account")
@@ -49,4 +52,4 @@ def create_employee(request):
         else:
              messages.info(request, "Fields Should not be empty")
 
-        return render(request, 'admins/admin_home.html')
+        return render(request, 'admins/create_employees.html')
