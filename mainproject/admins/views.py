@@ -1,6 +1,7 @@
 from django.shortcuts import render,redirect
 from . models import *
 from django.contrib import messages
+from django.core.mail import send_mail
 # Create your views here.
 
 
@@ -56,5 +57,55 @@ def create_employee(request):
 
 
 def view_employee_details(request):
-    data = employee.objects.all()
+    data = employee.objects.filter(assign_task=False)
     return render(request,'admin/employee_details.html',{'data':data})
+
+
+def send_mail_employee_details(request,pk):
+    data = employee.objects.get(pk=pk)
+    msg = f"Hello, My name is {data.name} and your email id and password {data.email}. and" \
+          f"{data.password}. we are assigning your task can you check your email id."
+    send_mail(
+        'Assigning task',
+        msg,
+        "authentication4email@gmail.com",
+        [data.email],
+        fail_silently=False,
+    )
+    data.assign_task = True
+    data.save()
+    messages.info(request, "Email sent to employee")
+
+    return redirect("/admin_home/")
+
+
+def employee_report(request):
+    data = employee.objects.filter(employee_report=True)
+    return render(request,'admin/update_employee_details.html',{'data':data})
+
+
+def update_employee_details(request,pk):
+    x = employee.objects.get(pk=pk)
+    if request.method == "POST":
+        x.name = request.POST.get('name')
+        x.email= request.POST.get('email')
+        x.password=request.POST.get('password')
+        x.task1 = request.POST.get('task1')
+        x.task2 = request.POST.get('task2')
+        x.task3 = request.POST.get('task3')
+        x.save()
+        return redirect('/admin_home/')
+    messages.info(request, "Successfully updates")
+    return render(request, 'admin/update.html', {'obj': x})
+
+
+def delete_employee(request,pk):
+    x = employee.objects.get(pk=pk)
+    x.delete()
+    messages.info(request, "Deleted")
+    return redirect('/admin_home/')
+
+
+
+
+

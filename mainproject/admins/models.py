@@ -10,5 +10,7 @@ class employee(models.Model):
     task1 = models.CharField(max_length=100,null=True)
     task2 = models.CharField(max_length=100, null=True)
     task3 = models.CharField(max_length=100, null=True)
+    assign_task = models.BooleanField(default=False)
+    employee_report = models.BooleanField(default=False)
 
 
