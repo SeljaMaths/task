@@ -4,6 +4,7 @@ from admins.models import *
 from django.db.models import Q
 from django.contrib import messages
 from django.core.mail import send_mail
+from django.contrib.auth import logout
 # Create your views here.
 
 
@@ -44,3 +45,8 @@ def update_register(request,pk):
         update.save()
         return redirect('/employee_home/')
     return render(request, 'employee/update_task.html', {'update': update})
+
+
+def employee_logout(request):
+    logout(request)
+    return redirect('/')

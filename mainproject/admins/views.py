@@ -2,6 +2,7 @@ from django.shortcuts import render,redirect
 from . models import *
 from django.contrib import messages
 from django.core.mail import send_mail
+from django.contrib.auth import logout
 # Create your views here.
 
 
@@ -89,14 +90,13 @@ def update_employee_details(request,pk):
     if request.method == "POST":
         x.name = request.POST.get('name')
         x.email= request.POST.get('email')
-        x.password=request.POST.get('password')
         x.task1 = request.POST.get('task1')
         x.task2 = request.POST.get('task2')
         x.task3 = request.POST.get('task3')
         x.save()
         return redirect('/admin_home/')
     messages.info(request, "Successfully updates")
-    return render(request, 'admin/update.html', {'obj': x})
+    return render(request, 'admin/update.html', {'x': x})
 
 
 def delete_employee(request,pk):
@@ -106,6 +106,8 @@ def delete_employee(request,pk):
     return redirect('/admin_home/')
 
 
-
+def admin_logout(request):
+    logout(request)
+    return redirect('/')
 
 

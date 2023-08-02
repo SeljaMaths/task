@@ -61,7 +61,8 @@
                 <th>Designing</th>
                 <th>Developing</th>
                 <th>Testing</th>
-                <th>Assign Task</th>
+                <th>Update</th>
+                <th>Delete</th>
                  </tr>
             </thead>
             <tbody>
@@ -76,8 +77,8 @@
                 <td>{{i.task2}}</td>
                 <td>{{i.task3}}</td>
 
-                <td><a href="/send_mail_employee_details/{{i.id}}/"><button class="button-62">Edit</button></a></td>
-                 <td><a href="/send_mail_employee_details/{{i.id}}/"><button class="button-62">Delete</button></a></td>
+                <td><a href="/update_employee_details/{{i.id}}/"><button class="button-62">Edit</button></a></td>
+                 <td><a href="/delete_employee/{{i.id}}/"><button class="button-62">Delete</button></a></td>
 
             </tr>
 
